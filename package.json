@@ -1,0 +1,64 @@
+{
+  "name": "n8n-nodes-prerenderbuddy",
+  "version": "1.0.0",
+  "description": "Prerender Buddy is a platform for AI visibility, website health and reviewed article publishing.",
+  "license": "MIT",
+  "keywords": [
+    "n8n-community-node-package",
+    "prerenderbuddy",
+    "ai-visibility",
+    "seo",
+    "aeo",
+    "geo",
+    "articles",
+    "publishing"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22.16"
+  },
+  "scripts": {
+    "build": "node scripts/clean-dist.cjs && tsc && node scripts/copy-assets.cjs",
+    "test": "npm run build && node --test test/*.test.cjs",
+    "lint": "n8n-node lint"
+  },
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/PrerenderBuddyApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/PrerenderBuddy/PrerenderBuddy.node.js"
+    ]
+  },
+  "devDependencies": {
+    "n8n-workflow": "2.16.0",
+    "typescript": "5.9.3",
+    "@types/node": "22.18.10",
+    "@n8n/node-cli": "0.50.5"
+  },
+  "homepage": "https://prerenderbuddy.com",
+  "author": {
+    "name": "Prerender Buddy",
+    "url": "https://prerenderbuddy.com",
+    "email": "support@prerenderbuddy.com"
+  },
+  "bugs": {
+    "url": "https://prerenderbuddy.com/contact"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kopachlager/n8n-nodes-prerenderbuddy.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
