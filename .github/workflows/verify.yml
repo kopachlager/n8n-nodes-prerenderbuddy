@@ -1,0 +1,14 @@
+name: Verify published n8n package
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Scan published community package
+        run: npx --yes @n8n/scan-community-package n8n-nodes-prerenderbuddy
